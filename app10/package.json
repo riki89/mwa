@@ -1,0 +1,15 @@
+{
+  "name": "app10",
+  "version": "1.0.0",
+  "description": "Test app10",
+  "main": "app10.js",
+  "scripts": {
+    "start": "node app10.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yahia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
