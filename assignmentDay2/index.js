@@ -4,7 +4,7 @@ const route = require("./api/routes");
 
 const app = express();
 
-app.listen(3000);
+app.listen(5050);
 
 app.use(function(req, res, next){
     console.log(req.method, res.url)

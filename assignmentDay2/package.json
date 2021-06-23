@@ -1,10 +1,10 @@
 {
-  "name": "app18",
+  "name": "assignment 2",
   "version": "1.0.0",
   "description": "MEAN Game",
-  "main": "app18.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app18.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
