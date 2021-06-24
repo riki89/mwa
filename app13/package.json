@@ -1,10 +1,10 @@
 {
-  "name": "app18",
+  "name": "app13",
   "version": "1.0.0",
   "description": "MEAN Game",
-  "main": "app18.js",
+  "main": "app13.js",
   "scripts": {
-    "start": "node app18.js",
+    "start": "node app13.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,7 +14,6 @@
   "author": "Yahia",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongodb": "^3.6.9"
+    "express": "^4.17.1"
   }
 }

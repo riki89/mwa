@@ -8,10 +8,9 @@ const app = express();
 app.listen(3000);
 
 app.use(function(req, res, next){
-    console.log(req.method, req.url)
+    console.log(req.method, res.url)
     next();
 })
-
 app.use(express.urlencoded({extended: false}));
 app.use(express.json({extended: false}));
 
