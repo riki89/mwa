@@ -1,0 +1,5 @@
+3 types of input: parameters, queryString, body (POST)
+where to check: param (routes), queryString(controllers)
+we need a patch and an update beacause mongoDB doesn't care
+PATCH: try to maintain the db schema
+PUT: Everything
