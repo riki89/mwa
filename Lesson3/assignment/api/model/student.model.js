@@ -20,4 +20,4 @@ const studentsSchema = new mongoose.Schema({
 
 // mongoose.model("Game", gamesSchema, "collection_name")
 
-mongoose.model("Student1", studentsSchema, "Students");
+mongoose.model("Student", studentsSchema, "Students");

@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 require("../model/game.model")
-const dbName = "meanGames";
+require("../model/student.model")
+
+const dbName = "schoolDB";
+// const dbName = "meanGames";
 
 const dbUrl = "mongodb://localhost:27017/"+dbName;
 

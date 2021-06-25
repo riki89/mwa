@@ -11,4 +11,4 @@ console.log("listen on 4100");
 app.use(express.urlencoded({extended: false}));
 app.use(express.json({extended: false}));
 app.use("/api", routes);
-app.use("/question2", route2);
+//app.use("/question2", route2);
