@@ -8,10 +8,10 @@ db.technology.find().sort({"name": -1}).pretty()
 db.technology.find({}, {"name": true, "_id":false}).pretty()
 db.student.insert({name : "Jim",gpa : 3.1});
 
-db.student.insert({name : "Kim",gpa : 4, courses: {name: "MWA", id: 1}});
-db.student.insert({name : "John",gpa : 4, courses: {name: "WAP", id: 2}});
+db.Students.insert({name : "Kim",gpa : 4, courses: {name: "MWA", id: 1}});
+db.Students.insert({name : "John",gpa : 4, courses: {name: "WAP", id: 2}});
 
-
+db.Students.insert({name : "Kareem",gpa : 3.8, courses: [{name: "MWA", id: 1}, {name: "WAP", id: 2}, {name: "ASD", id: 3}]});
 
 db.technology.update({"name": "Angular"}, {$set: {"name": "AngularJS"}});
 db.technology.update({}, {$set: {"langage": "JavaScript"}}, {"multi":true});
