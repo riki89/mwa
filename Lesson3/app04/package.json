@@ -1,0 +1,20 @@
+{
+  "name": "app04",
+  "version": "1.0.0",
+  "description": "MEAN Game",
+  "main": "app04.js",
+  "scripts": {
+    "start": "node app04.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN",
+    "GAME"
+  ],
+  "author": "Yahia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.14"
+  }
+}
