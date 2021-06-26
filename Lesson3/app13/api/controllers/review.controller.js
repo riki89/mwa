@@ -8,11 +8,15 @@ const serverError = 500;
 const successError = 200;
 const notFoundError = 404;
 
-const _addPublisher = function(req, res, game){
+const _addReview = function(req, res, game){
     //console.log("1: name ", typeof(game.publisher));
-    
-    game.publisher.name = req.body.name;
-    game.publisher.country = req.body.country;
+    const newReview = {
+        name: req.body.name,
+        review: req.body.review,
+        date: req.body.date
+    }
+    game.review.push(newReview);
+
     //game.publisher.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
     //console.log("Game to save ", req.body.name);
     game.save(function(err, updateGame){
@@ -33,7 +37,8 @@ const _addPublisher = function(req, res, game){
     
 }
 
-module.exports.publisherGetOne = function(req, res){
+
+module.exports.reviewGetAll = function(req, res){
     const response = {
         status: 200,
         message: res
@@ -41,19 +46,37 @@ module.exports.publisherGetOne = function(req, res){
     console.log("Get one publisher request received");
     const gameId = req.params.gameId;
    
-    Game.findById(gameId).select("publisher").exec(function(err, publisher){
+    Game.findById(gameId).select("review").exec(function(err, review){
         if (err){
             response.status = notFoundError;
             response.message = err;
         } else {
-            // console.log(game.publisher);
-            response.message = publisher ; //? game.publisher:[];
+            response.message = review ; 
         }
         res.status(response.status).json(response.message);
     })
 }
 
-module.exports.publisherAddOne = function (req, res) {
+module.exports.reviewGetOne = function(req, res){
+    const response = {
+        status: 200,
+        message: res
+    }
+    console.log("Get one publisher request received");
+    const gameId = req.params.gameId;
+   
+    Game.findById(gameId).select("review").exec(function(err, review){
+        if (err){
+            response.status = notFoundError;
+            response.message = err;
+        } else {
+            response.message = review ; 
+        }
+        res.status(response.status).json(response.message);
+    })
+}
+
+module.exports.reviewAddOne = function (req, res) {
     console.log("Add one publisher");
     const gameId = req.params.gameId;
     Game.findById(gameId).exec(function(err, game){
@@ -70,8 +93,7 @@ module.exports.publisherAddOne = function (req, res) {
             response.message = {"message": "Game ID not found"};
         } 
         if (game) {
-           //console.log("Game found ", game);
-            _addPublisher(req, res, game);
+            _addReview(req, res, game);
         } else{
             res.status(response.status).json(response.message);
         }
@@ -79,7 +101,7 @@ module.exports.publisherAddOne = function (req, res) {
    
 }
 
-module.exports.publisherFullUpdateOne = function(req, res){
+module.exports.reviewFullUpdateOne = function(req, res){
     console.log("Get one publisher request received");
     const response = {
         status: 200,
@@ -121,7 +143,7 @@ module.exports.publisherFullUpdateOne = function(req, res){
     })
 }
 
-module.exports.publisherDeleteOne = function(req, res){
+module.exports.reviewDeleteOne = function(req, res){
     console.log("Get one publisher request received");
     const response = {
         status: 200,

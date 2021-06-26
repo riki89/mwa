@@ -1,4 +1,19 @@
 const mongoose = require("mongoose");
+const reviewSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        require: true
+    },
+    review: {
+        type: String,
+        require: true
+    },
+    date: {
+        type: String,
+        default: Date.now
+    }
+})
+
 const publisherSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -34,7 +49,8 @@ const gamesSchema = new mongoose.Schema({
     }, 
     designers: [String],
     //type: ObjectId, Date, Buffer (for image)
-    publisher: publisherSchema
+    publisher: publisherSchema,
+    review: [reviewSchema]
 });
 
 // mongoose.model("Game", gamesSchema, "collection_name")
