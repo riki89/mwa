@@ -50,7 +50,7 @@ const gamesSchema = new mongoose.Schema({
     designers: [String],
     //type: ObjectId, Date, Buffer (for image)
     publisher: publisherSchema,
-    review: [reviewSchema]
+    reviews: [reviewSchema]
 });
 
 // mongoose.model("Game", gamesSchema, "collection_name")

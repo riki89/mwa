@@ -31,6 +31,7 @@ router.route("/games/:gameId/reviews")
     .post(controllerReview.reviewAddOne);
 
 router.route("/games/:gameId/reviews/:reviewId")
+    .get(controllerReview.reviewGetOne)
     .put(controllerReview.reviewFullUpdateOne)
     .delete(controllerReview.reviewDeleteOne);
 

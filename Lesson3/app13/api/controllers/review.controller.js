@@ -15,7 +15,11 @@ const _addReview = function(req, res, game){
         review: req.body.review,
         date: req.body.date
     }
-    game.review.push(newReview);
+    // if (!game.reviews){
+    //     game.reviews = [];
+    // }
+    game.reviews = game.reviews ? game.reviews : [];
+    game.reviews.push(newReview);
 
     //game.publisher.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
     //console.log("Game to save ", req.body.name);
@@ -46,7 +50,7 @@ module.exports.reviewGetAll = function(req, res){
     console.log("Get one publisher request received");
     const gameId = req.params.gameId;
    
-    Game.findById(gameId).select("review").exec(function(err, review){
+    Game.findById(gameId).select("reviews").exec(function(err, review){
         if (err){
             response.status = notFoundError;
             response.message = err;
@@ -65,7 +69,7 @@ module.exports.reviewGetOne = function(req, res){
     console.log("Get one publisher request received");
     const gameId = req.params.gameId;
    
-    Game.findById(gameId).select("review").exec(function(err, review){
+    Game.findById(gameId).select("reviews").exec(function(err, review){
         if (err){
             response.status = notFoundError;
             response.message = err;

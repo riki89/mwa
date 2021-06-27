@@ -1,7 +1,5 @@
-const dbConnection = require("../data/dbconnection");
-
 const mongoose = require("mongoose");
-const Game = mongoose.model("Game");
+const Game = mongoose.model("Member");
 
 const userError = 400;
 const serverError = 500;
@@ -9,15 +7,11 @@ const successError = 200;
 const notFoundError = 404;
 
 const _addPublisher = function(req, res, game){
-    //console.log("1: name ", typeof(game.publisher));
-    if (!game.publisher){
-        game.publisher = {};
-    }
-    console.log("publisher ", game.publisher);
+    //console.log("1: name ", typeof(game.address));
     
-    game.publisher.name = req.body.name;
-    game.publisher.country = req.body.country;
-    //game.publisher.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
+    game.address.name = req.body.name;
+    game.address.country = req.body.country;
+    //game.address.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
     //console.log("Game to save ", req.body.name);
     game.save(function(err, updateGame){
         const response = {
@@ -37,28 +31,28 @@ const _addPublisher = function(req, res, game){
     
 }
 
-module.exports.publisherGetOne = function(req, res){
+module.exports.addressGetOne = function(req, res){
     const response = {
         status: 200,
         message: res
     }
-    console.log("Get one publisher request received");
+    console.log("Get one address request received");
     const gameId = req.params.gameId;
    
-    Game.findById(gameId).select("publisher").exec(function(err, publisher){
+    Game.findById(gameId).select("address").exec(function(err, address){
         if (err){
             response.status = notFoundError;
             response.message = err;
         } else {
-            // console.log(game.publisher);
-            response.message = publisher ; //? game.publisher:[];
+            // console.log(game.address);
+            response.message = address ; //? game.address:[];
         }
         res.status(response.status).json(response.message);
     })
 }
 
-module.exports.publisherAddOne = function (req, res) {
-    console.log("Add one publisher");
+module.exports.addressAddOne = function (req, res) {
+    console.log("Add one address");
     const gameId = req.params.gameId;
     Game.findById(gameId).exec(function(err, game){
         const response = {
@@ -83,8 +77,8 @@ module.exports.publisherAddOne = function (req, res) {
    
 }
 
-module.exports.publisherFullUpdateOne = function(req, res){
-    console.log("Get one publisher request received");
+module.exports.addressFullUpdateOne = function(req, res){
+    console.log("Get one address request received");
     const response = {
         status: 200,
         message: []
@@ -101,9 +95,9 @@ module.exports.publisherFullUpdateOne = function(req, res){
             response.message = { "message": "Publisher not found" }
         } if (game) {
             // response.status = notFoundError;
-            game.publisher.name = req.body.name;
-            game.publisher.country = req.body.country;
-            //game.publisher.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
+            game.address.name = req.body.name;
+            game.address.country = req.body.country;
+            //game.address.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
             game.save(function(err, updateGame){
                 const response = {
                     status: successError,
@@ -119,14 +113,14 @@ module.exports.publisherFullUpdateOne = function(req, res){
                 res.status(response.status).json(response.message);
 
     })
-    //         response.message = updatedGame.publisher
+    //         response.message = updatedGame.address
         }
         // res.status(response.status).json(response.message);
     })
 }
 
-module.exports.publisherDeleteOne = function(req, res){
-    console.log("Get one publisher request received");
+module.exports.addressDeleteOne = function(req, res){
+    console.log("Get one address request received");
     const response = {
         status: 200,
         message: []
@@ -143,7 +137,7 @@ module.exports.publisherDeleteOne = function(req, res){
             response.message = { "message": "Publisher not found" }
         } 
         if (game) {
-            game.publisher.remove();
+            game.address.remove();
             game.save(function (err, deletedGame) {
                 if (err) {
                     console.log("Game not updated");
@@ -155,7 +149,7 @@ module.exports.publisherDeleteOne = function(req, res){
                 }
                 //res.status(response.status).json(response.message);
             })
-           // response.message = deletedGame.publisher
+           // response.message = deletedGame.address
         }
         res.status(response.status).json(response.message);
     })
