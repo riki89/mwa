@@ -1,0 +1,17 @@
+
+<input type="text" ng-model="jobId">
+<p ng-hide= "jobId != number">Correct</p>
+<p ng-show= "jobId != number">Incorrect</p>
+
+<div>
+    <ul>
+        <li ng-repeat="job in JobCtrl.job | limitTo: 5"> {{job.title}}
+            <ul>
+                <li>uuid: {{ job.uuid }}</li>
+                <li>Title: {{ job.title }}</li>
+                <li>normalized job title: {{ job.normalized_job_title }}</li>
+                <li>parent uuid: {{ job.parent_uuid }}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

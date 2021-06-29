@@ -1,0 +1,12 @@
+<H1> This is home page,</H1>
+<p>Hello, {{MyCtrl}}</p>
+
+<ul>
+    <li ng-repeat="joke in mainCtrl.jokes">
+        {{joke.type}}<br>
+        {{joke.setup}}<br>
+        <input type="checkbox" ng-model={{showPunchline}} />
+        <div ng-if=showPunchline>{{joke.punchline}}</div>
+
+    </li>
+</ul>

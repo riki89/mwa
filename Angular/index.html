@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="jobApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Angular Project</title>
+</head>
+
+<body>
+    <div ng-view>
+
+    </div>
+
+    <!-- <div ng-controller="MyProperController as MyCtrl">
+        <p>Hello, {{MyCtrl.name}}</p>
+
+    </div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="mainPage/main.controller.js"></script>
+    <script src="about/about.controller.js"></script>
+    <script src="job/job.controller.js"></script>
+    <script src="dataFactory/dataFactory.js"></script>
+
+</body>
+
+</html>
