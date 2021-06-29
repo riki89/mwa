@@ -1,10 +1,11 @@
-angular.module("jobApp").controller("MyMainController", MyMainController);
+angular.module("jobApp").controller("JobController", JobController);
 
-function MyMainController($http) {
+function JobController($routeParams,JobFactory) {
     const vm = this;
-    this.name = "jack";
-    $http.get()
-        .then(function (response) {
-            
-        })
+    
+
+    JobFactory.getJobs()
+    .then(function (response) {
+        vm.job = response;
+    });
 }
