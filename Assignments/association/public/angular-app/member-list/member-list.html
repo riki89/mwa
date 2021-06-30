@@ -1,0 +1,8 @@
+<input type="text" ng-model="searchText">
+
+<h3>Members list:</h3>
+<ul>
+    <li ng-repeat="member in vm.members | filter: searchText">
+        <a ng-href="#!/members/{{member._id}}">{{member.firstName}} {{member.lastName}}</a>
+    </li>
+</ul>
