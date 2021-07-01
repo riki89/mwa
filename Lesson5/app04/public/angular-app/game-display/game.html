@@ -3,10 +3,11 @@
 </p></h1>
 
 <p>
+    Title: {{vm.game.title}} <br/>
     Price: {{vm.game.price | currency}}<br>
     Minimum players: {{vm.game.minPlayers}} <br>
     Maximum players: {{vm.game.maxiPlayers}} <br>
     Minimum age: {{vm.game.minAge}} <br>
     Publisher: {{vm.game.publisher.name}} <br>
-    
+    <button ng-click="vm.delete(vm.game._id)">Delete</span>
 </p>

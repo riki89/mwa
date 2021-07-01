@@ -40,8 +40,8 @@ module.exports.gamesGetAll = function (req, res) {
         message: res
     }
     let offset = 0;
-    let count = 5;
-    const maxCount = 8;
+    let count = 50;
+    const maxCount = 80;
 
     if (req.query && req.query.lng && req.query.lat) {
         runGeoQuery(req, res);
@@ -137,9 +137,11 @@ module.exports.gamesAddOne = function (req, res) {
             message: game
         }
         if (err) {
+            console.log("Error while saving game", err);
             response.status = userError;
             response.message = err;
         } else {
+            console.log("Game created", game);
             response.status = successError;
             response.message = game;
         }
@@ -276,7 +278,6 @@ module.exports.gamesDeleteOne = function (req, res) {
         res.status(userError).json({ "message": "The length of the game's ID should be " + idLength });
         return;
     }
-
     Game.findByIdAndRemove(gameId).exec(function (err, deletedGame) {
         if (err) {
             console.log("Found game error", err);

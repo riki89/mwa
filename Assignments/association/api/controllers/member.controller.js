@@ -88,12 +88,16 @@ module.exports.membersAddOne = function (req, res) {
     console.log("Add one member");
     // const db = dbConnection.get();
     // const collection = db.collection("members");
+    let dob = req.body.dob;
+    if (!dob){
+        dob = Date.now();
+    }
     let newMember = {
         title: req.body.title,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         phoneNumber: req.body.phoneNumber,
-        dob: req.body.dob,
+        dob: dob,
         address: {},
         contribution: [],
 
@@ -105,9 +109,11 @@ module.exports.membersAddOne = function (req, res) {
             message: member
         }
         if (err) {
+            console.log("Error while creation", err);
             response.status = userError;
             response.message = err;
         } else {
+            console.log("Success create Member", member);
             response.status = successError;
             response.message = member;
         }

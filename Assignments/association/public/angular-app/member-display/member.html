@@ -5,5 +5,5 @@
     Last Name: {{vm.member.lastName}} <br>
     Phone Number: {{vm.member.phoneNumber}} <br>
     <a href="#!/members/{{vm.member._id}}/contributions"> List of contributions </a><br>
-    
+    <button ng-click="vm.delete(vm.member._id)">Delete</button>
 </p>

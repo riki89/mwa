@@ -4,7 +4,11 @@ function MembersDataFactory($http) {
     return {
         getAll: getAllMembers,
         getOne: getOneMember,
-        getContributions: getContributions
+        getContributions: getContributions,
+        addMember: addMember,
+        deleteMember: deleteMember,
+        addContribution: addContribution,
+        deleteContribution: deleteContribution,
     }
 
     function getAllMembers() {
@@ -17,6 +21,22 @@ function MembersDataFactory($http) {
 
     function getContributions(memberId) {
         return $http.get("/api/members/"+memberId+"/contributions").then(complete).catch(failed);
+    }
+
+    function addMember(member){
+        return $http.post("/api/members", member).then(complete).catch(failed);
+    }
+
+    function deleteMember(memberId) {
+        return $http.delete("/api/members/"+memberId).then(complete).catch(failed);
+    }
+
+    function addContribution(memberId, contribution){
+        return $http.post("/api/members/"+memberId+"/contibutions", contribution).then(complete).catch(failed);
+    }
+
+    function deleteContribution(memberId, contributionId) {
+        return $http.delete("/api/members/"+memberId+"/contributions/"+contributionId).then(complete).catch(failed);
     }
 
     function complete(response) {

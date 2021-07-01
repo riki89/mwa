@@ -1,7 +1,7 @@
 <!-- {{vm.title}} -->
-
+<input type="text" ng-model="searchText">
 <ul>
-    <li ng-repeat="game in vm.games">
+    <li ng-repeat="game in vm.games | filter: searchText">
         <a ng-href="#!/games/{{game._id}}">{{game.title}}</a>
     </li>
 </ul>

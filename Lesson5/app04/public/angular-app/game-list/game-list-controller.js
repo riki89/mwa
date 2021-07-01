@@ -6,7 +6,9 @@ function GamesController(GamesDataFactory){
     GamesDataFactory.getAll().then(function(response){
         vm.games = response;
     });
+
     vm.addGame = function(){
+        console.log("addGame");
         let postData = {
             title: vm.newGameTitle,
             price: vm.newGamePrice,
@@ -14,17 +16,19 @@ function GamesController(GamesDataFactory){
             minPlayers: vm.newGameMinPlayers,
             maxPlayers: vm.newGameMaxPlayers,
             minAge: vm.newGameMinAge,
-            rate: vm.newGameRate,
+            rate: vm.newGameRating,
             designers: vm.newGameDesigner,
             publisher: {}
         };
         if (vm.gameForm.$valid){
             GamesDataFactory.addOne(postData)
                 .then(function(response){
-                    console.log(response);
+                    console.log("Game saved", response);
                 }).catch(function(error){
-                    console.log(error);
+                    console.log("Error while saving",error);
                 })
+        } else {
+            console.log("Game form not valid");
         }
     }
 }

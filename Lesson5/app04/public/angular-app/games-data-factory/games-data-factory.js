@@ -4,7 +4,8 @@ function GamesDataFactory($http){
     return {
         getAll: getAllGames,
         getOne: getOneGame,
-        addOne: addOneGame
+        addOne: addOneGame,
+        deleteOne: deleteOne
     }
 
     function getAllGames(){
@@ -17,6 +18,9 @@ function GamesDataFactory($http){
 
     function addOneGame(game){
         return $http.post("/api/games", game).then(complete).catch(failed);
+    }
+    function deleteOne(id){
+        return $http.delete("/api/games/"+id).then(complete).catch(failed);
     }
 
     function complete(response){
