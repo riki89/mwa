@@ -40,8 +40,8 @@ module.exports.gamesGetAll = function (req, res) {
         message: res
     }
     let offset = 0;
-    let count = 50;
-    const maxCount = 80;
+    let count = 5;
+    const maxCount = 8;
 
     if (req.query && req.query.lng && req.query.lat) {
         runGeoQuery(req, res);
