@@ -31,5 +31,11 @@ function LoginController(UsersDataFactory, AuthDataFactory, $window, jwtHelper, 
         AuthDataFactory.auth = false;
         delete $window.sessionStorage.token;
         $location.psth("/");
+    };
+
+    vm.isActive = function(url){
+        const currentPath = $location.path().split("/")[1];
+        console.log(currentPath);
+        return (url === currentPath ? "active":"");
     }
 }

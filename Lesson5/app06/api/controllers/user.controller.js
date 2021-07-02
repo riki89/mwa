@@ -81,3 +81,30 @@ module.exports.login = function(req, res){
         res.status(response.status).json(response.message);
     })
 }
+
+module.exports.authenticate = function(req, res, next){
+    const headerExist = req.authorization;
+    let secret = "cs572";
+    const response = {
+        status: 200,
+        message: []
+    }
+                    
+    if (headerExist){
+        const token = headerExist.split(" ")[1];
+        jwt.sign(token, secret, function(error, decodeToken){
+            if (error){
+                console.log("jwt verify error", error);
+                response.status = 400;
+                response.message = "Unauthorized";
+            } else {
+                next();
+            }
+
+        })
+    } else {
+        response.status = 400;
+        response.message = "Token missing";
+    }
+    res.status(response.status).json(response.message);
+};

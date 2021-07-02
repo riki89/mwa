@@ -8,32 +8,32 @@ const controllerUser = require("../controllers/user.controller");
 const router = express.Router();
 router.route("/games")
     .get(controllerGames.gamesGetAll)
-    .post(controllerGames.gamesAddOne);
+    .post(controllerUser.authenticate, controllerGames.gamesAddOne);
 
 router.route("/games/:gameId")
     .get(controllerGames.gamesGetOne)
-    .put(controllerGames.gamesFullUpdate)
-    .patch(controllerGames.gamesPartialUpdate)
-    .delete(controllerGames.gamesDeleteOne);
+    .put(controllerUser.authenticate, controllerGames.gamesFullUpdate)
+    .patch(controllerUser.authenticate, controllerGames.gamesPartialUpdate)
+    .delete(controllerUser.authenticate, controllerGames.gamesDeleteOne);
 
-router.route("/multiply/:number1").get(multiply.mult);
+// router.route("/multiply/:number1").get(multiply.mult);
 router.route("/games/:gameId/publishers")
     .get(controllerPublisher.publisherGetOne)
-    .post(controllerPublisher.publisherAddOne);
+    .post(controllerUser.authenticate, controllerPublisher.publisherAddOne);
 
 router.route("/games/:gameId/publishers/:publisherId")
     //.get(controllerPublisher.publisherGetOne)
-    .put(controllerPublisher.publisherFullUpdateOne)
-    .delete(controllerPublisher.publisherDeleteOne);
+    .put(controllerUser.authenticate, controllerPublisher.publisherFullUpdateOne)
+    .delete(controllerUser.authenticate, controllerPublisher.publisherDeleteOne);
 
 
 router.route("/games/:gameId/reviews")
     .get(controllerReview.reviewGetAll)
-    .post(controllerReview.reviewAddOne);
+    .post(controllerUser.authenticate, controllerReview.reviewAddOne);
 
 router.route("/games/:gameId/reviews/:reviewId")
-    .put(controllerReview.reviewFullUpdateOne)
-    .delete(controllerReview.reviewDeleteOne);
+    .put(controllerUser.authenticate, controllerReview.reviewFullUpdateOne)
+    .delete(controllerUser.authenticate, controllerReview.reviewDeleteOne);
 
 //Users routes
 router.route("/users")

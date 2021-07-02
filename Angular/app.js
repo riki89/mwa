@@ -18,8 +18,7 @@ function config($routeProvider) {
         controller: "joke/joke.controller",
         controllerAs: "jokeCtrl"
 
-    })
-        .otherwise({
+    }).otherwise({
             redirectTo: "/"
         })
 }

@@ -25,7 +25,8 @@
         <ul class="nav navbar-nav">
           <li ng-class="vm.isActiveTab(&#39;&#39;)" class="active"><a href="#/">Home</a></li>
           <li ng-class="vm.isActiveTab(&#39;games&#39;)"><a href="#/games">Games</a></li>
-          <li ng-class="vm.isActiveTab(&#39;register&#39;)"><a href="#/register">Register</a></li>
+          <li ng-if="!vm.ifLoggedIn("><a href="#/register">Register</a></li>
+          <li ng-if="vm.ifLoggedIn()"><a href="#/profile">Profile</a></li>
         </ul>
         <div class="col-xs-6">
           <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
