@@ -1,7 +1,13 @@
-List of jobs 
+----<a href="#!/">Home</a>-------><a href="#!/jobs">Jobs</a>------><a href="#!/jobs/{{vm.jobId}}">Job</a><hr><br/>
+List of Skills 
 <ul>
-    <li ng-repeat="job in vm.job.skills">
-        Skill: {{job.skill}}<BR/>
+    <li ng-repeat="skill in vm.skills">
+        Skill: {{skill}}<BR/><BR/>
         <button class="warning" ng-click="vm.delete()">Delete</button>
     </li>
 </ul>
+<form name="vm.skillForm" ng-submit="vm.addSkill()">
+    To add a new skill please fill in the field below: <br>
+    Name: <input type="text" name="skill" required ng-model="vm.newSkill"/> <br>
+    <button type="submit" class="btn-success">Add</button>
+</form>
