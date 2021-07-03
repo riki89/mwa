@@ -7,3 +7,11 @@ Location Details {{vm.location.location}}
         <button class="warning" ng-click="vm.delete()">Delete</button>
     </li>
 </ul>
+
+<form name="vm.locationForm" ng-submit="vm.addLocation()">
+    To add a new location please fill in the field below: <br>
+    Address: <input type="text" name="address" required ng-model="vm.newAddress"/> <br>
+    State: <input type="text" name="state" required ng-model="vm.newState"/> <br>
+    
+    <button type="submit" class="btn-success">Add</button>
+</form>
