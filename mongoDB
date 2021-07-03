@@ -29,6 +29,8 @@ mongoimport --db newTestDB2
 
 db.dbname.find().size() // to know the size or length()
 
+db.jobs.insert({title : "JS Developper", salary : 100000, location:"", description: "JS Dev", skills: [], postDate: Date.now()});
+
 
 
 db.Students.insert([{name : "Jack",grade : 3.1}, {name : "Jim",grade : 2.7}, {name : "Jill",grade : 3.5}]);

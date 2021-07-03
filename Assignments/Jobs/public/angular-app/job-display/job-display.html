@@ -1,0 +1,11 @@
+----<a href="#!/">Home</a>-----|------<a href="#!/jobs">Jobs</a>------<hr><br/>
+Job Details 
+<ul>
+    <li>
+        Title: {{vm.job.title}}<BR/>
+        Salary: {{vm.job.salary | currency}}<BR/>
+        Description: {{vm.job.description}}<BR/>
+        <a href="#!/jobs/{{vm.job._id}}/location">Location</a><br/><br/>
+        <button class="warning" ng-click="vm.delete()">Delete</button>
+    </li>
+</ul>

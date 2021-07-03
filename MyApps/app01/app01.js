@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-require("./api/data/dbconnection").open();
+// require("./api/data/dbconnection").open();
 const route = require("./api/routes");
 
 const app = express();

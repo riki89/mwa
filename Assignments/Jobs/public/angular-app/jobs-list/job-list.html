@@ -1,0 +1,20 @@
+----<a href="#!/">Home</a>-----|------<a href="#!/jobs">Jobs</a>------<hr><br/>
+<input type="text" ng-model="searchText">
+
+List of jobs 
+<ul>
+    <li ng-repeat="job in vm.jobs | filter: searchText">
+        <a href="#!/jobs/{{job._id}}">{{job.title}}</a>
+    </li>
+</ul>
+
+<form name="vm.jobForm" ng-submit="vm.addJob()">
+    To add a new job please fill in the fields below: <br>
+    Title: <input type="text" name="title" required ng-model="vm.newJobTitle"/> <br>
+    Salary: <input type="number" name="salary" required ng-model="vm.newJobSalary"/><br>
+    <span ng-show="vm.jobForm.salary.$dirty && vm.jobForm.salary.$invalid">
+        Minimum Salary must be between 1000 and 900000
+    </span><BR/>
+    Description: <input type="textArea" name="description" required ng-model="vm.newJobDescription"/><br><br>
+   <button type="submit" class="btn-success">Add</button>
+</form>

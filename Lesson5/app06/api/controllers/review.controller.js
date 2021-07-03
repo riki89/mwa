@@ -64,13 +64,14 @@ module.exports.reviewGetOne = function(req, res){
     }
     console.log("Get one publisher request received");
     const gameId = req.params.gameId;
+    const reviewId = rew.params.reviewId;
    
-    Game.findById(gameId).select("review").exec(function(err, review){
+    Game.findById(gameId).select("review").exec(function(err, game){
         if (err){
             response.status = notFoundError;
             response.message = err;
         } else {
-            response.message = review ; 
+            response.message = game.reviews.id(reviewId); 
         }
         res.status(response.status).json(response.message);
     })
@@ -116,11 +117,11 @@ module.exports.reviewFullUpdateOne = function(req, res){
             response.message = err;
         } else if (!game){
             response.status = notFoundError;
-            response.message = { "message": "Publisher not found" }
+            response.message = { "message": "Review not found" }
         } if (game) {
             // response.status = notFoundError;
-            game.publisher.name = req.body.name;
-            game.publisher.country = req.body.country;
+            game.reviews.name = req.body.name;
+            game.reviews.country = req.body.country;
             //game.publisher.location.coordinates = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
             game.save(function(err, updateGame){
                 const response = {
@@ -137,9 +138,7 @@ module.exports.reviewFullUpdateOne = function(req, res){
                 res.status(response.status).json(response.message);
 
     })
-    //         response.message = updatedGame.publisher
         }
-        // res.status(response.status).json(response.message);
     })
 }
 
@@ -161,19 +160,16 @@ module.exports.reviewDeleteOne = function(req, res){
             response.message = { "message": "Publisher not found" }
         } 
         if (game) {
-            game.publisher.remove();
+            game.reviews.remove();
             game.save(function (err, deletedGame) {
                 if (err) {
                     console.log("Game not updated");
                     response.status = notFoundError;
                     response.message = { "message": "Game not updated" }
                 } else {
-                    // response.status = notFoundError;
                     response.message = deletedGame
                 }
-                //res.status(response.status).json(response.message);
             })
-           // response.message = deletedGame.publisher
         }
         res.status(response.status).json(response.message);
     })

@@ -172,7 +172,7 @@ module.exports.gamesFullUpdate = function (req, res) {
             // res.status(userError).json(doc);
             response.status = userError;
             response.message = { "message": "Game ID not found" };
-        }  
+        }
         if (game) {
             game.title = req.body.title;
             game.price = parseInt(req.body.price);
@@ -183,7 +183,7 @@ module.exports.gamesFullUpdate = function (req, res) {
             game.rate = parseInt(req.body.rate);
             game.designers = req.body.designers;
             game.publisher = {};
-    
+
             game.save(function (err, updatedGame) {
                 if (err) {
                     console.log("Game not updated");
@@ -194,7 +194,7 @@ module.exports.gamesFullUpdate = function (req, res) {
                     response.message = updatedGame
                 }
                 res.status(response.status).json(response.message);
-            })            
+            })
         }
     });
 
@@ -224,7 +224,7 @@ module.exports.gamesPartialUpdate = function (req, res) {
             // res.status(userError).json(doc);
             response.status = userError;
             response.message = { "message": "Game ID not found" };
-        }  if (game) {
+        } if (game) {
             if (req.body.title) {
                 game.title = req.body.title;
             }
@@ -247,7 +247,7 @@ module.exports.gamesPartialUpdate = function (req, res) {
                 game.designers = req.body.designers;
             }
             game.publisher = {};
-    
+
             game.save(function (err, updatedGame) {
                 if (err) {
                     console.log("Game not updated");

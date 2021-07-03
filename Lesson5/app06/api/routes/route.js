@@ -1,6 +1,6 @@
 const express = require("express");
 const controllerGames = require("../controllers/game.controller");
-const multiply = require("../controllers/multiplication");
+// const multiply = require("../controllers/multiplication");
 const controllerPublisher = require("../controllers/publisher.controller");
 const controllerReview = require("../controllers/review.controller");
 const controllerUser = require("../controllers/user.controller");

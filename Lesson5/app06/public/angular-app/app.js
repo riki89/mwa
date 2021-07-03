@@ -1,7 +1,7 @@
 angular.module("meanGames", ['ngRoute', 'angular-jwt']).config(config).run(run);
 
 function config($routeProvider){
-    %httpProvider.interceptors.push("AuthInterceptor");
+    $httpProvider.interceptors.push("AuthInterceptor");
     $routeProvider.when("/", {
         templateUrl: "angular-app/welcome.html",
         access: {restricted: false}
