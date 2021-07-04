@@ -21,6 +21,9 @@ db.technology.remove({}); //to delete
 db.dropDatabase()// drop database
 
 mongorestore --db meanGames --gzip dump/meanGames
+
+mongorestore --db cities --gzip dump/cities
+
 mongodump --db newTestDB2
 mongoexport --db newTestDB2 --collection games --output/games.json
 mongoexport --db schoolDB --collection Students --out output/students.json --jsonArray --pretty

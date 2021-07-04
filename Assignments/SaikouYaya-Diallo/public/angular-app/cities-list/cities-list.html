@@ -1,0 +1,21 @@
+----<a href="#!/">Home</a>-----|------<a href="#!/cities">Cities</a>------<hr><br/>
+
+List of cities 
+<ul>
+    <li ng-repeat="city in vm.cities">
+        Name: {{city.city}} State: {{city.state}} <a href="#!/cities/{{city._id}}"> More details</a>
+    </li>
+</ul>
+
+<form name="vm.cityForm" ng-submit="vm.addCity()">
+    To add a new city please fill in the fields below: <br><br/>
+    City: <input type="text" name="city" required ng-model="vm.newCityName"/> <br><br/>
+    Zip: <input type="text" name="zip" required ng-model="vm.newCityZip"/><br><br/>
+    Pop: <input type="number" name="pop" required ng-model="vm.newCityPop"/><br><br>
+    State: <input type="text" name="state" required ng-model="vm.newCityState"/><br><br>
+    Location info: <br/>
+    Longitude: <input type="text" name="lng" ng-model="vm.newCityLng"/><br/>
+    Latitude: <input type="text" name="lat" ng-model="newCityLat"/><br/><br/>
+
+    <button type="submit" class="btn-success">Add</button>
+</form>

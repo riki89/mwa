@@ -1,0 +1,11 @@
+----<a href="#!/">Home</a>-------><a href="#!/cities">Cities</a><hr><br/>
+Job Details 
+<ul>
+        City: {{vm.city.city}} <BR/>
+        Zip: {{vm.city.zip}}<BR/>
+        Pop: {{vm.city.pop}}<BR/>
+        State: {{ vm.city.state}}<BR/>
+        Location: [{{vm.city.loc[0]}}; {{vm.city.loc[1]}}] <BR/></BR/>
+        <button class="warning" ng-click="vm.delete(vm.city._id)">Delete</button>
+    </li>
+</ul>
