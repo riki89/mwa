@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 require("./association-model");
+require("./users-model");
 
 const dbName = "meanAssociation";
 // const dbUrl = "mongodb://localhost:27017/"+dbName;

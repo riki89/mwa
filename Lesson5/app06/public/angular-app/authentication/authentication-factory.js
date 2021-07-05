@@ -1,6 +1,6 @@
-angular.module("meanGames").factory("AuthDataFactory", AuthDataFactory);
+angular.module("meanGames").factory("AuthFactory", AuthFactory);
 
-function AuthDataFactory(){
+function AuthFactory(){
     return {
         auth: auth
     };

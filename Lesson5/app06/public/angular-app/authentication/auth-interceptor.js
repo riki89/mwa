@@ -1,5 +1,3 @@
-const { request, response } = require("express");
-
 angular.module("meanGames").factory("AuthInterceptor", AuthInterceptor);
 
 function AuthInterceptor(){

@@ -1,10 +1,10 @@
-angular.module("meanGames").controller("LoginController", LoginController);
+angular.module("assoApp").controller("LoginController", LoginController);
 
-function LoginController(UsersDataFactory, AuthDataFactory, $window, jwtHelper, $location){
+function LoginController(UsersDataFactory, AuthFactory, $window, jwtHelper, $location){
     const vm = this;
     vm.loggedUser = "";
     vm.isLoggedIn = function(){
-        return AuthDataFactory.auth;
+        return AuthFactory.auth;
     };
     vm.login = function(){
         if (vm.username && vm.password){
@@ -12,23 +12,24 @@ function LoginController(UsersDataFactory, AuthDataFactory, $window, jwtHelper, 
                 username: vm.username,
                 password: vm.password
             };
-            UsersDataFactory.login().then(function(result){
-                console.log(result);
+            UsersDataFactory.login(user).then(function(result){
+                console.log("login OK...",result);
                 $window.sessionStorage.token = result.token;
-                AuthDataFactory.auth = true;
+                AuthFactory.auth = true;
+                const token = $window.sessionStorage.token;
                 const decodedToken = jwtHelper.decodeToken(token);
-                vm.loggedUser = decodedToken.name;
+                vm.loggedinUser = decodedToken.name;
                 vm.username = "";
                 vm.password = "";
             }).catch(function(error){
                 console.log(error);
-                AuthDataFactory.auth = false;
+                AuthFactory.auth = false;
                 
             })
         }
     }
     vm.logout = function(){
-        AuthDataFactory.auth = false;
+        AuthFactory.auth = false;
         delete $window.sessionStorage.token;
         $location.path("/");
     };

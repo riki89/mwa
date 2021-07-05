@@ -1,11 +1,11 @@
-angular.module("meanGames").directive("gameRating", GameRating);
+angular.module("assoApp").directive("memberRating", MemberRating);
 
-function GameRating(){
+function MemberRating(){
     return {
         restrict: "E",
-        templateUrl: "angular-app/game-rating/rating.html",
+        templateUrl: "angular-app/member-rating/rating.html",
         bindToController:true,
-        controller: "GameController",
+        controller: "MemberController",
         controllerAs: "vm",
         // scope: {
         //     newStars: "=stars" //@

@@ -2,6 +2,7 @@ const express = require("express");
 const controllerMembers = require("../controllers/member.controller");
 const controllerAddress = require("../controllers/address.controller");
 const controllerContribution = require("../controllers/contribution.controller");
+const controllerUser = require("../controllers/user.controller");
 
 const router = express.Router();
 router.route("/members")
@@ -31,6 +32,12 @@ router.route("/members/:memberId/contributions/:contributionId")
     .put(controllerContribution.contributionFullUpdate)
     .patch(controllerContribution.contributionPartialUpdate)
     .delete(controllerContribution.contributionDeleteOne);
+//Users routes
+router.route("/users")
+    .post(controllerUser.register);
 
+router.route("/users/login")
+    .post(controllerUser.login);
+    
 
 module.exports = router;

@@ -1,6 +1,6 @@
 angular.module("meanGames", ['ngRoute', 'angular-jwt']).config(config).run(run);
 
-function config($routeProvider){
+function config($routeProvider, $httpProvider){
     $httpProvider.interceptors.push("AuthInterceptor");
     $routeProvider.when("/", {
         templateUrl: "angular-app/welcome.html",
@@ -28,12 +28,12 @@ function config($routeProvider){
     });
 }
 
-function run($routeScope, $location, $window, AuthDataFactory){
+function run($routeScope, $location, $window, AuthFactory){
     $routeScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute){
         if (currentRoute.access !== undefined 
             && nextRoute.access.restricted
             && !$window.sessionStorage.token
-            && !AuthDataFactory.auth) // check if you may access the next route
+            && !AuthFactory.auth) // check if you may access the next route
         //if you are not allowed to access 
         event.preventDefault(); //Do not go to the path
         $location.path("/"); //instead send back to home
