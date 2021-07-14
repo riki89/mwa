@@ -1,10 +1,10 @@
 {
-  "name": "app04",
+  "name": "app06",
   "version": "1.0.0",
   "description": "MEAN Game",
-  "main": "app04.js",
+  "main": "app06.js",
   "scripts": {
-    "start": "node app04.js",
+    "start": "node app06.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,10 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.8.2",
+    "angular-jwt": "^0.1.11",
     "angular-route": "^1.8.2",
-    "chrome-remote-interface": "^0.24.5",
+    "bcrypt": "^5.0.1",
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.17.1",
-    "mongoose": "^5.12.14",
-    "pdf-export": "^1.4.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.14"
   }
 }

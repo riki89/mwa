@@ -19,14 +19,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#/">MeanAssociation</a>
+        <a class="navbar-brand" href="#/">MeanGames</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li ng-class="vm.isActiveTab(&#39;&#39;)" class="active"><a href="#/">Home</a></li>
-          <li ng-class="vm.isActiveTab(&#39;members&#39;)"><a href="#!/members">Members</a></li>
-          <li ng-class="vm.isActiveTab(&#39;register&#39;)" ng-if="!vm.isLoggedIn()"><a href="#!/register">Register</a></li>
-          <li ng-class="vm.isActiveTab(&#39;profile&#39;)" ng-if="vm.isLoggedIn()"><a href="#!/profile">Profile</a></li>
+          <li ng-class="vm.isActiveTab(&#39;games&#39;)"><a href="#/games">Games</a></li>
+          <li ng-if="!vm.ifLoggedIn("><a href="#/register">Register</a></li>
+          <li ng-if="vm.ifLoggedIn()"><a href="#/profile">Profile</a></li>
         </ul>
         <div class="col-xs-6">
           <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">

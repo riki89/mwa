@@ -1,0 +1,6 @@
+sudo npm install -g @angular/cli
+ng new mean-games --skip-git=true --skip-tests=true --directory=angular-app
+----
+
+ng generate component
+ng generate service

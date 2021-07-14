@@ -1,0 +1,5 @@
+<p>Welcome to {{title}} Application</p>
+
+<li *ngFor="let game of games">
+    <a routerLink="/game/{{game._id}}"></a> {{game.title}} <br/>
+</li>
