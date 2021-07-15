@@ -1,0 +1,7 @@
+<p>Welcome to {{title}} Application</p>
+
+<li *ngFor="let member of members">
+    <a routerLink="/member/{{member._id}}"> {{member.firstName}} {{member.lastName}}</a> <br/>
+</li>
+<!-- <app-welcome-page></app-welcome-page> -->
+<app-add-member></app-add-member>

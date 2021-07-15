@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import { Game } from './game-list/game-list.component';
+import { Member } from './member-list/member-list.component';
 import { Credentials } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GamesDataService {
+export class MembersDataService {
 
-  private apiBaseUrl:string ="http://localhost:3100/api";
+  private apiBaseUrl:string ="http://localhost:3200/api";
   constructor(private http: HttpClient) { }
 
-  public getGames(): Promise<Game[]>{
-    const url:string= this.apiBaseUrl+"/games";
+  public getMembers(): Promise<Member[]>{
+    const url:string= this.apiBaseUrl+"/members";
     return this.http.get(url).toPromise()
-      .then(response => response as Game[])
+      .then(response => response as Member[])
       .catch(this.handleError);
   };
 
-  public getGame(gameId:string): Promise<Game>{
-    const url:string= this.apiBaseUrl+"/games/"+gameId;
+  public getMember(memberId:string): Promise<Member>{
+    const url:string= this.apiBaseUrl+"/members/"+memberId;
     return this.http.get(url).toPromise()
-      .then(response => response as Game)
+      .then(response => response as Member)
       .catch(this.handleError);
   };
 
-  public deleteGame(gameId: string): Promise<Game> {
-    const url:string= this.apiBaseUrl+"/games/"+gameId;
+  public deleteMember(memberId: string): Promise<Member> {
+    const url:string= this.apiBaseUrl+"/members/"+memberId;
     return this.http.delete(url).toPromise()
-      .then(response => response as Game)
+      .then(response => response as Member)
       .catch(this.handleError);
   }
 
-  public addGame(game: JSON): Promise<Game> {
-    const url:string= this.apiBaseUrl+"/games";
-    return this.http.post(url, game).toPromise()
-      .then(response => response as Game)
+  public addMember(member: JSON): Promise<Member> {
+    const url:string= this.apiBaseUrl+"/members";
+    return this.http.post(url, member).toPromise()
+      .then(response => response as Member)
       .catch(this.handleError);
   }
 
