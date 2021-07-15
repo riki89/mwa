@@ -1,0 +1,19 @@
+<input type="text" ng-model="searchText">
+
+<h3>Members list:</h3>
+<ul>
+    <li ng-repeat="member in vm.members | filter: searchText">
+        <a ng-href="#!/members/{{member._id}}">{{member.firstName}} {{member.lastName}}</a>
+    </li>
+</ul>
+
+<form name="vm.memberForm" ng-submit="vm.addMember()">
+    to add a new Member please fill in the fields:<br>
+    Title: <input type="text" name="title" required ng-model="vm.newMemberTitle" style="color: black;"></br>
+    First Name: <input type="text" name="firstName" required ng-model="vm.newMemberFirstName" style="color: black;"></br>
+    Last Name: <input type="text" name="lastName" required ng-model="vm.newMemberLastName" style="color: black;"></br>
+    Phone Number: <input type="text" name="phoneNumber" required ng-model="vm.newMemberPhoneNumber" style="color: black;"
+        ng-pattern="/^[0-9][0-9]{7,15}$"></br>
+        <span ng-show="vm.memberForm.phoneNumber.$invalid && vm.memberForm.phoneNumber.$dirty">The phone number should be between 7-15</span>
+    <button type="submit" class="btn-success">Add Member</button></br>
+</form>

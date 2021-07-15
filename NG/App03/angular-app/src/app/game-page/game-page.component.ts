@@ -20,8 +20,6 @@ export class GamePageComponent implements OnInit {
     this.getGame(gameId);
   }
 
-  
-
   private getGame(gameId: string): void{
     this.gamesDataService.getGame(gameId)
       .then((response) => this.receivedGame(response) )
@@ -32,6 +30,13 @@ export class GamePageComponent implements OnInit {
     this.game = game;
 
   };
+
+  public deleteGame(): void{
+    const gameId: string = this.route.snapshot.params.gameId; 
+    this.gamesDataService.deleteGame(gameId)
+      .then((response) => this.receivedGame(response) )
+      .catch(this.handleError);
+  }
   
   private handleError(error:any){
     console.log("Error ", error);

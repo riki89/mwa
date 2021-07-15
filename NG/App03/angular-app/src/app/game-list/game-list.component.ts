@@ -17,7 +17,7 @@ export class GameListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGames();
-    console.log();
+    console.log(this.games);
     
   }
 
@@ -32,4 +32,7 @@ export class Game {
   title!: string;
   price!: number;
   year!: number;
+  minPlayers!: number;
+  maxiPlayers!: number;
+  minAge!: number;
 }

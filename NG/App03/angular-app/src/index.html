@@ -7,12 +7,27 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="assets/bootstrap.min.css" rel="stylesheet"></script>
-  <script src="assets/custom.css" rel="stylesheet"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link href="assets/css/custom.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <app-welcome></app-welcome>
+  <app-root class="container"></app-root>
+  <footer class="footer">
+    <p class="text-muted text-center">
+      <a routerLink="compro.miu.edu/" target="_blank">
+        <img src="assets/img/compro.webp" height="60" alt="compro logo">
+      </a>
+      <br />
+      <small class="text-black-50 text-center">
+        &copy;2021 Maharishi International
+        University. All Rights Reserved.
+      </small>
+    </p>
+  </footer>
+  <script src="assets/jquery/jquery-3.6.0.min.js"> </script>
+
 </body>
 
 </html>

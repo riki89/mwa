@@ -1,7 +1,12 @@
-<h1>Information about {{game.title}}</h1>
+<h1>Information about game: {{game.title}}
+    <!-- <game-rating stars=game.rate></game-rating> -->
+</h1>
 
 <p>
-    Title: {{game.title}}<br/>
-    Price: {{game.price}}<br/>
-    Year: {{game.year}}<br/>
+    Price: {{game.price | currency}}<br>
+    Minimum players: {{game.minPlayers}} <br>
+    Maximum players: {{game.maxiPlayers}} <br>
+    Minimum age: {{game.minAge}} <br>
+    <!-- Publisher: {{game.publisher.name}} <br> -->
+    <button class="warning" (click)="deleteGame();">Delete</button>
 </p>

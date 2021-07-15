@@ -1,0 +1,18 @@
+<!-- {{vm.title}} -->
+Contributions list: 
+<ul>
+    <li ng-repeat="cont in vm.contributions.contribution">
+        Type: {{cont.type}}
+        Amount: {{ cont.amount }}<br/> 
+        Date: {{ cont.date }}<br/>
+        <button ng-click="vm.deleteContribution(vm.member._id, cont._id)">Delete</button>
+    </li>
+</ul>
+
+<form name="vm.contributionForm" ng-submit="vm.addContribution()">
+    to add a new Member please fill in the fields:<br>
+    Type: <input type="text" name="type" required ng-model="vm.newContType" style="color: black;"></br>
+    Amount: <input type="number" name="amount" required ng-model="vm.newContAmount" style="color: black;"></br>
+    Date: <input type="date" name="date" required ng-model="vm.newContDate" style="color: black;"></br>
+    <button type="submit" class="btn-success">Add Contribution</button></br>
+</form>

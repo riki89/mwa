@@ -1,0 +1,24 @@
+<h1>Register</h1>
+<div *ngIf="message" class="alert alert-success" role="alert">
+    <p>{{ message}}</p>
+</div>
+<div *ngIf="err" class="alert alert-danger" role="alert">
+    {{err}}
+</div>
+<form [formGroup]="addForm" ng-hide="message" name="register" (ngSubmit)="register()">
+    <label for="username">Username</label>
+    <input type="username" class="form-control" id="username" placeholder="Username" formControlName="username"
+        autocapitalize="none">
+
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
+        autocapitalize="none">
+    <label for="password-repeat">Repeat Password</label>​
+    <input type="password" class="form-control" id="password-repeat" placeholder="Password"
+        formControlName="passwordRepeat" autocapitalize="none">
+
+    <label for="name">Name</label>
+    <input type="name" class="form-control" id="name" placeholder="Name" formControlName="name" autocapitalize="none">
+    ​
+    <button type="submit" class="btn btn-success">Register</button>​
+</form>
