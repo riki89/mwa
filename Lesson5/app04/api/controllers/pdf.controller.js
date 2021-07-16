@@ -23,7 +23,7 @@ module.exports.export = function (req, res) {
   };
 
   exporter.export(options).then(buffer => {
-    fs.writeFileSync(name, buffer);
+    fs.writeFileSync("exportedFile/"+name, buffer);
   }).then(exporter.dispose.bind(exporter), console.log, res.status(200).send("file exported succesfully"))
   .catch(err => res.status(500).send(err));
   // res.status(200).send("file exported succesfully");

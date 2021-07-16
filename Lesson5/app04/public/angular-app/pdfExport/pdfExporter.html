@@ -2,7 +2,7 @@ test: {{vm.test}}
 <form ng-submit="vm.submit()">
     <div>
         <label>URL</label>
-        <input id="url" type="text" required ng-model="pdf.url">
+        <input id="url" type="url" required ng-model="pdf.url">
     </div>
     <div>
         <label>PDF name</label>
@@ -12,8 +12,8 @@ test: {{vm.test}}
         <input type="submit" value="Export">
     </div>
 </form>
-<p>{{pdf | json}}</p>
+<!-- <p>{{pdf | json}}</p> -->
 <p>
-    URL: {{vm.url}} <br />
-    Name Output: {{vm.name}}
+    URL: {{pdf.url}} <br />
+    Name Output: {{pdf.name}}
 </p>
