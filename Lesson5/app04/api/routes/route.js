@@ -3,6 +3,7 @@ const controllerGames = require("../controllers/game.controller");
 const multiply = require("../controllers/multiplication");
 const controllerPublisher = require("../controllers/publisher.controller");
 const controllerReview = require("../controllers/review.controller");
+const controllerPDF = require("../controllers/pdf.controller");
 
 const router = express.Router();
 router.route("/games")
@@ -34,5 +35,7 @@ router.route("/games/:gameId/reviews/:reviewId")
     .put(controllerReview.reviewFullUpdateOne)
     .delete(controllerReview.reviewDeleteOne);
 
+router.route("/pdf")
+    .get(controllerPDF.export);
 
 module.exports = router;

@@ -10,7 +10,7 @@ const app = express();
 app.listen(3100);
 
 app.use(function(req, res, next){
-    console.log(req.method, res.url)
+    console.log(req.method, req.url)
     next();
 })
 

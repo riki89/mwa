@@ -9,5 +9,11 @@ function config($routeProvider){
         templateUrl: "angular-app/game-display/game.html",
         controller:"GameController",
         controllerAs: "vm"
-    })
+    }).when("/pdf", {
+        templateUrl: "angular-app/pdfExport/pdfExporter.html",
+        controller:"PDFController",
+        controllerAs: "vm"
+    }).otherwise({
+        redirectTo:"/"
+    });
 }

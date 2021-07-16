@@ -5,7 +5,8 @@ function GamesDataFactory($http){
         getAll: getAllGames,
         getOne: getOneGame,
         addOne: addOneGame,
-        deleteOne: deleteOne
+        deleteOne: deleteOne,
+        exportPDF: exportPDF,
     }
 
     function getAllGames(){
@@ -21,6 +22,9 @@ function GamesDataFactory($http){
     }
     function deleteOne(id){
         return $http.delete("/api/games/"+id).then(complete).catch(failed);
+    }
+    function exportPDF(url, name){
+        return $http.get("/api/pdf?url="+url+"&name="+name).then(complete).catch(failed);
     }
 
     function complete(response){
